@@ -30,7 +30,15 @@ app.use(bodyParser.urlencoded({
 app.use(express.static("public"));
 
 // Database configuration with mongoose
-mongoose.connect("mongodb://localhost/news_scraper");
+var databaseUri = "mongodb://localhost/news_scraper";
+
+if (process.env.MONGODB_URI) {
+  //this executes if this is being executed in your heroku app
+  mongoose.connect(process.env.MONGODB_URI);
+} else {
+  mongoose.connect(databaseUri);
+}
+// ----------end database configuration-----------
 var db = mongoose.connection;
 
 // Show any mongoose errors
