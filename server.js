@@ -34,7 +34,7 @@ var databaseUri = "mongodb://localhost/news_scraper";
 
 if (process.env.MONGODB_URI) {
   //this executes if this is being executed in your heroku app
-  mongoose.connect(process.env.MONGODB_URI);
+  mongoose.connect(process.env.mongodb://heroku_cd677v1n:9g7m622c3f0es89lnipi3j5g5a@ds139969.mlab.com:39969/heroku_cd677v1n);
 } else {
   mongoose.connect(databaseUri);
 }
